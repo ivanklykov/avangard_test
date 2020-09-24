@@ -11,6 +11,16 @@
 |
 */
 
+use App\Http\Controllers\WheatherController;
+use App\Http\Controllers\OrdersController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('wheather', 'WheatherController@index')->name('wheather');
+
+Route::resource('orders', 'OrdersController', [
+    'only' => ['index', 'edit', 'update']
+]);
